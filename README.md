@@ -33,6 +33,26 @@ Användning:
                                  # frågar om bekräftelse först
 ```
 
+### Reset-HyperVNetworking.ps1
+
+Diagnostiserar Hyper-V's virtuella switchar och NAT-status på hosten, och kan
+valfritt starta om nätverkstjänsterna eller tvinga Windows att bygga om
+Default Switch från grunden. Används när ett fel (t.ex. TTL exceeded) kvarstår
+oavsett vilken switch eller VM som testas, det pekar då på ett trasigt
+nätverkstillstånd på själva hosten snarare än ett konfigurationsfel i en VM.
+
+Användning:
+
+```
+.\Reset-HyperVNetworking.ps1                     # bara diagnos, ändrar inget
+.\Reset-HyperVNetworking.ps1 -RestartServices     # startar om Hyper-V's nätverkstjänster,
+                                                   # ofarligt, kort avbrott för alla VM
+.\Reset-HyperVNetworking.ps1 -ResetDefaultSwitch  # tvingar Windows att bygga om Default
+                                                   # Switch helt, kräver att alla VM på
+                                                   # Default Switch är avstängda och att
+                                                   # datorn startas om efteråt
+```
+
 ## Krav
 
 - Hyper-V-rollen installerad
