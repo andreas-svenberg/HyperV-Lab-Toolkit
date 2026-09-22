@@ -53,6 +53,22 @@ Användning:
                                                    # datorn startas om efteråt
 ```
 
+### Samla-HyperV-Info.ps1
+
+Läsonly script som inte ändrar något i systemet. Samlar ihop switch-, VM-
+och nätverkskonfiguration (vSwitchar, vEthernet-adaptrar, VM-nätverkskort
+med MAC/VLAN, checkpoints, virtuella hårddiskar) till både en textrapport
+och en JSON-fil. Tänkt att köras inför en av/på-cykel av Hyper-V-hosten, så
+att allt är dokumenterat om något inte kommer tillbaka automatiskt.
+
+Användning:
+
+```
+.\Samla-HyperV-Info.ps1
+```
+
+Sparar rapporterna i `C:\Hyper-V\Backup-Info`.
+
 ## Krav
 
 - Hyper-V-rollen installerad
